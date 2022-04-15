@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     void DisplayAgentInfo(int HP, string name)
     {
-        agentInfoTXT.text = "Agent: " +  name + ", ilość HP: " + HP.ToString();
+        agentInfoTXT.text = "Agent: " +  name + ", HP amount: " + HP.ToString();
     }
 
 

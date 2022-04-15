@@ -7,13 +7,9 @@ public class MarkoPoloPanelController : MonoBehaviour
     [SerializeField] GameObject markoPoloPanel;
 
     public void ActivatePanel()
+    
     {
         markoPoloPanel.SetActive(true);
-    }
-
-    public void DeactivatePanel()
-    {
-        markoPoloPanel.SetActive(false);
     }
 
 }
