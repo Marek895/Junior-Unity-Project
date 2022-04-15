@@ -31,7 +31,7 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i<poolsize; i++)
         {
 
-            Vector3 coorditanes = new Vector3(UnityEngine.Random.Range(0f, 10f), .3f, UnityEngine.Random.Range(0f, 10f) );
+            Vector3 coorditanes = new Vector3(UnityEngine.Random.Range(0f, 10f), .3f, UnityEngine.Random.Range(0f, 10f) ); //choose random position for an Agent
             pool[i] = Instantiate(prefab,coorditanes,Quaternion.identity, this.transform );
             pool[i].SetActive(false);
             pool[i].name = names[i];
@@ -39,7 +39,7 @@ public class ObjectPool : MonoBehaviour
 
     }
 
-    IEnumerator SpawnAgent()
+    IEnumerator SpawnAgent() // spawn agent after couple of seconds
     {
         foreach (GameObject agent in pool)
         {

@@ -39,7 +39,7 @@ public class AgentHealth : MonoBehaviour
             AgentDespawn();
         }
 
-        foreach(Transform bodypart in transform)
+        foreach(Transform bodypart in transform) // change agent colllor when collides with another
         {
 
             if(currentHealthpoints == 2)
