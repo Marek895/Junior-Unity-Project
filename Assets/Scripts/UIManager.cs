@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
         ObjectPool.agentSpawn += IncreaseAgentCounter;
         AgentHealth.agentDespawn += DecreaseAgentCounter;
         AgentHealth.clearAgentSelection += ClearAgentInfo;
+        AgentHealth.updateAgentHP += DisplayAgentInfo;
         AgentSelector.agentCheck += DisplayAgentInfo;
         AgentSelector.clearAgentSelection += ClearAgentInfo;
         
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     {
         ObjectPool.agentSpawn -= IncreaseAgentCounter;
         AgentHealth.agentDespawn -= DecreaseAgentCounter;
+        AgentHealth.clearAgentSelection -= ClearAgentInfo;
         AgentHealth.clearAgentSelection -= ClearAgentInfo;
         AgentSelector.agentCheck -= DisplayAgentInfo;
         AgentSelector.clearAgentSelection -= ClearAgentInfo;

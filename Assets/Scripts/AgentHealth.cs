@@ -6,28 +6,32 @@ using UnityEngine;
 public class AgentHealth : MonoBehaviour
 {
     public static event Action agentDespawn;
-    public static event Action clearAgentSelection; //allows to clrea the UI when the selected agent dies
+    public static event Action<int, string> updateAgentHP;
+    public static event Action clearAgentSelection; //allows to clear the UI when the selected agent dies
     [SerializeField] Material agenttInjuredMaterial;
     [SerializeField] Material agenttBadlyInjuredMaterial;
     [SerializeField] int maxHealthPoints = 3;
 
     public int currentHealthpoints;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         currentHealthpoints = maxHealthPoints;
     }
 
-    // Update is called once per frame
     void OnTriggerEnter(Collider other) 
     {
 
         currentHealthpoints--;
 
+        if(transform.childCount>4) //Selected agent can have updated HP on UI when touches another agent
+        {
+            updateAgentHP?.Invoke(gameObject.GetComponent<AgentHealth>().currentHealthpoints, gameObject.name);
+        }
         if(currentHealthpoints <=0)
         {
-            if(transform.childCount>4) //Agent Selection Mark is always 5th child of ageng Object , so when is dies with Agent Selection Mark on it, the UI is cleared
+            if(transform.childCount>4) //Agent Selection Mark is always 5th child of agent Object , so when is dies with Agent Selection Mark on it, the UI is cleared
             {
                 clearAgentSelection?.Invoke();
             }
