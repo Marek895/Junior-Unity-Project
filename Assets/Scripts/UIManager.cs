@@ -13,16 +13,24 @@ public class UIManager : MonoBehaviour
          
     {
         ObjectPool.agentSpawn += IncreaseAgentCounter;
+        AgentHealth.agentDespawn += DecreaseAgentCounter;
     }
 
     void OnDisable()
     {
         ObjectPool.agentSpawn -= IncreaseAgentCounter;
+        AgentHealth.agentDespawn -= DecreaseAgentCounter;
     }
     
     void IncreaseAgentCounter()
     {
         agentCounter++;
+        agentCounterTXT.text = "Current number of agents " + agentCounter.ToString();
+    }
+
+    void DecreaseAgentCounter()
+    {
+        agentCounter--;
         agentCounterTXT.text = "Current number of agents " + agentCounter.ToString();
     }
 
