@@ -6,6 +6,7 @@ using UnityEngine;
 public class AgentHealth : MonoBehaviour
 {
     public static event Action agentDespawn;
+    public static event Action clearAgentSelection; //allows to clrea the UI when the selected agent dies
     [SerializeField] Material agenttInjuredMaterial;
     [SerializeField] Material agenttBadlyInjuredMaterial;
     [SerializeField] int maxHealthPoints = 3;
@@ -26,6 +27,11 @@ public class AgentHealth : MonoBehaviour
 
         if(currentHealthpoints <=0)
         {
+            if(transform.childCount>4) //Agent Selection Mark is always 5th child of ageng Object , so when is dies with Agent Selection Mark on it, the UI is cleared
+            {
+                clearAgentSelection?.Invoke();
+            }
+
             AgentDespawn();
         }
 

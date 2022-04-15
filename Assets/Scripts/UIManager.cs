@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField] TextMeshProUGUI agentCounterTXT;
+    [SerializeField] TextMeshProUGUI agentInfoTXT;
+    
 
     int agentCounter= 0;
     void OnEnable() 
@@ -14,12 +16,21 @@ public class UIManager : MonoBehaviour
     {
         ObjectPool.agentSpawn += IncreaseAgentCounter;
         AgentHealth.agentDespawn += DecreaseAgentCounter;
+        AgentHealth.clearAgentSelection += ClearAgentInfo;
+        AgentSelector.agentCheck += DisplayAgentInfo;
+        AgentSelector.clearAgentSelection += ClearAgentInfo;
+        
     }
 
     void OnDisable()
     {
         ObjectPool.agentSpawn -= IncreaseAgentCounter;
         AgentHealth.agentDespawn -= DecreaseAgentCounter;
+        AgentHealth.clearAgentSelection -= ClearAgentInfo;
+        AgentSelector.agentCheck -= DisplayAgentInfo;
+        AgentSelector.clearAgentSelection -= ClearAgentInfo;
+        
+
     }
     
     void IncreaseAgentCounter()
@@ -32,6 +43,17 @@ public class UIManager : MonoBehaviour
     {
         agentCounter--;
         agentCounterTXT.text = "Current number of agents " + agentCounter.ToString();
+    }
+
+    void DisplayAgentInfo(int HP, string name)
+    {
+        agentInfoTXT.text = "Agent: " +  name + ", ilość HP: " + HP.ToString();
+    }
+
+
+    void ClearAgentInfo()
+    {
+        agentInfoTXT.text = null;
     }
 
 }

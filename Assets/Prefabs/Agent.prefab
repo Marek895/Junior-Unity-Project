@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1029521604640526623}
   - component: {fileID: 1929410259897409828}
   - component: {fileID: -2148763002005562775}
+  - component: {fileID: 5995703616560508909}
   - component: {fileID: 7610757227835430451}
   - component: {fileID: 3511585760343329203}
   m_Layer: 0
@@ -66,6 +67,19 @@ MonoBehaviour:
   agenttBadlyInjuredMaterial: {fileID: 2100000, guid: a47fea756131ffa4d871a8b39680f466, type: 2}
   maxHealthPoints: 3
   currentHealthpoints: 0
+--- !u!114 &5995703616560508909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750101411796237204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af396511016e9742ac8304f187687d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentSelectionMark: {fileID: 8801077190011716360, guid: 5ae35507bcb0e734b86b0dd2898162d5, type: 3}
 --- !u!65 &7610757227835430451
 BoxCollider:
   m_ObjectHideFlags: 0
