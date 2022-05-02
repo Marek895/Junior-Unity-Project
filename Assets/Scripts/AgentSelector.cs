@@ -14,28 +14,34 @@ public class AgentSelector : MonoBehaviour
    
     void Update()
     {
-        if(Input.GetMouseButtonDown(1)) // right click allows to uncheck Agent if it's checked already
+        UncheckAgent();
+    }
+
+    void OnMouseDown()
+    {
+        SelectAgent();
+    }
+
+    void UncheckAgent()
+    {
+        if (Input.GetMouseButtonDown(1)) // right click allows to uncheck Agent if it's checked already
         {
             if (clone != null)
             {
                 Destroy(clone);
-                clearAgentSelection?.Invoke(); 
+                clearAgentSelection?.Invoke();
             }
         }
-
     }
 
-    void OnMouseDown() 
+    private void SelectAgent()
     {
-
         if (clone != null)
         {
-            
-            Destroy(clone);     
+
+            Destroy(clone);
         }
         clone = Instantiate(agentSelectionMark, transform.position + offset, Quaternion.identity, gameObject.transform);
         agentCheck?.Invoke(gameObject.GetComponent<AgentHealth>().currentHealthpoints, gameObject.name);
-        
     }
-
 }
