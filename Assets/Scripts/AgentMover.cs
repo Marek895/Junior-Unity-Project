@@ -21,7 +21,6 @@ public class AgentMover : MonoBehaviour
 
     void Update()
     {
-        CheckDistance();
         ControlAgent();
     }
 
@@ -34,12 +33,6 @@ public class AgentMover : MonoBehaviour
         }
         
     }
-
-    private void CheckDistance()
-    {
-        distance = Vector3.Distance(startposition, transform.position);
-    }
-
 
     void ControlAgent()
     {
